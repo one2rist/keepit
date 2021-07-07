@@ -4,9 +4,9 @@
 #include <sstream>
 #include <string>
 
-//this function template is the subject for further improvement
 namespace cmmn {
 
+//this function template is the subject for further improvement
 template<typename StringContainer>
 void split(StringContainer& sc, const std::string& str, const char /* unused for delimeter */) {
     std::istringstream ss(str);
