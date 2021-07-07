@@ -6,6 +6,8 @@
 #include <memory>
 #include <string>
 
+namespace cmmn {
+
 class FileReader {
 public:
     FileReader(const std::string& fileName, std::streamsize bufferSize, char delimeter = ' ')
@@ -50,3 +52,5 @@ private:
     std::unique_ptr<char[]> buffer;
     std::ifstream file;
 };
+
+} // namespace cmmn

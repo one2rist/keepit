@@ -20,7 +20,7 @@ constexpr size_t READY_GAIN = 2;                    // Must be 2+. 2 looks reaso
 constexpr auto TIMEOUT = 50ms;                      // 50 ms looks reasonable
 
 void run(const std::string& fileName) {
-    FileReader fileReader(fileName, BUFFSIZE);
+    cmmn::FileReader fileReader(fileName, BUFFSIZE);
     Tasks tasks;
     Tasks tasks_ready;
 
