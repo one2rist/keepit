@@ -23,4 +23,26 @@ void visualize_progress(char c = '.') {
     std::cout << c << std::flush;
 }
 
+namespace {
+template<typename... Args>
+void __log_error(
+    const std::string& file,
+    int line,
+    const std::string& func,
+    Args&&... args
+    )
+{
+    std::ostringstream stream;
+    stream
+       << "\n[ERROR] : "
+       << file << ":" << line << ": " << func;
+    // print variadic args
+    (void) std::initializer_list<int>{((void) (stream << " " << std::forward<Args>(args)), 0)...};
+    std::cout << stream.str() << std::endl;
+}
+}
+
+#define log_error(...) \
+    __log_error(__FILE__, __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__);
+
 } // namespace cmmn

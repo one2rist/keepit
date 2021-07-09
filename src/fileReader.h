@@ -27,7 +27,7 @@ public:
             return std::string();
         file.read(buffer.get(), bufferSize);
         auto extracted = file.gcount();
-        auto result = std::string(buffer.get());
+        std::string result = buffer.get();
         if (extracted != bufferSize) {
             result.resize(extracted);
             if (result.back() == '\n') {
