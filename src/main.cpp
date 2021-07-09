@@ -13,7 +13,7 @@ using TaskHandle = std::future<WordContainer>;
 using Tasks = std::list<TaskHandle>;
 
 constexpr std::streamsize BUFFSIZE = 20*1024*1024;  // TODO change interfaces to have this parameter dynamic, based on file size.
-constexpr size_t PROCESSES = 12;                    // TODO see above. The current is the machine's cores * 2
+const size_t PROCESSES = 2 * std::thread::hardware_concurrency();
 constexpr size_t READY_GAIN = 2;                    // Must be 2+. 2 looks reasonable, + tested.
 constexpr auto TIMEOUT = 50ms;                      // 50 ms looks reasonable
 
